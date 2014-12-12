@@ -8,7 +8,7 @@
 		<title> Fibonacci Request   </title>
 	</head>	
 	<body>		
-		<form action="Fibonacci" method=get>			
+		<form action="FibonacciServlet" method=get>			
 			 Please enter a number<br>
 			<input type="text" name="max"size="20px">
 			<input type="submit" value="submit">					

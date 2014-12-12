@@ -13,7 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/FibonacciServlet")
 public class FibonacciServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	Fibonacci fib = new Fibonacci();
+    Fibonacci id = new Fibonacci();
+	
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -26,7 +28,12 @@ public class FibonacciServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		int max = Integer.parseInt(request.getParameter("max"));
+		String jobId = (request.getParameter("jobId"));		
+		request.setAttribute("series", fib.getFibonacciSequence(max));
+		request.setAttribute("jobId", id.getUniqueId(jobId));		
+		request.getRequestDispatcher("Results.jsp").forward(request, response);
+			
 	}
 
 	/**
